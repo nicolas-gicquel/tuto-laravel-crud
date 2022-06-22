@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Produit;
+use App\Models\Categorie;
+use Illuminate\Http\Request;
 
 class ProduitController extends Controller
 {
@@ -15,6 +16,7 @@ class ProduitController extends Controller
     public function index()
     {
         $produits = Produit::all();
+        $categories = Categorie::all();
         return view('produits.index', compact('produits'));
     }
 
@@ -25,7 +27,8 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        return view('produits.create');
+        $categories = Categorie::all();
+        return view('produits.create',compact('categories'));
     }
 
     /**
@@ -40,15 +43,19 @@ class ProduitController extends Controller
             'nom' => 'required',
             'prix' => 'required',
             'description' => 'required',
-            'quantite' => 'required'
+            'quantite' => 'required',
+            'categorie_id' => 'required'
         ]);
-
+        
         Produit::create([
             'nom' => $request->nom,
             'description' => $request->description,
             'prix' => $request->prix,
             'quantite' => $request->quantite,
+            'categorie_id' => $request->categorie_id
         ]);
+
+
 
         return redirect()->route('produits.index')
             ->with('success', 'Produit ajouté avec succès !');

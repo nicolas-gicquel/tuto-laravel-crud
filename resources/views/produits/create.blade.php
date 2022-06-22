@@ -17,7 +17,7 @@
                             </ul>
                         </div>
                         @endif
-                        
+
                         <!-- Formulaire -->
                         <form method="POST" action="{{ route('produits.store') }}">
                             @csrf
@@ -44,6 +44,14 @@
                                         <input type="number" name="quantite" class="form-control">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <select name="categorie_id" class="custom-select">
+                                    <option value=""> --Catégorie-- </option>
+                                    @foreach($categories as $categorie)
+                                    <option value="{{ $categorie->id }}">{{ $categorie->libele }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-primary  rounded-pill shadow-sm"> Ajouter un produit </button>
                         </form>

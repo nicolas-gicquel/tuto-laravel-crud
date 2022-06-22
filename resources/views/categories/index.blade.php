@@ -18,26 +18,17 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Nom</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Catégorie</th>
-                                    <th scope="col">Prix</th>
-                                    <th scope="col">Quantité</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Libele</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($produits as $produit)
+                                @foreach($categories as $categorie)
                                 <tr>
-                                    <td>{{$produit->id}}</td>
-                                    <td>{{$produit->nom}}</td>
-                                    <td>{{$produit->description}}</td>
-                                    <td>{{$produit->categorie->libele}}</td>
-                                    <td>{{$produit->prix}}</td>
-                                    <td>{{$produit->quantite}}</td>
+                                    <td>{{$categorie->id}}</td>
+                                    <td>{{$categorie->libele}}</td>
                                     <td>
-                                        <a href="{{ route('produits.edit', $produit->id)}}" class="btn btn-primary btn-sm"">Editer</a>
-                                        <form action=" {{ route('produits.destroy', $produit->id)}}" method="POST" style="display: inline-block">
+                                        <a href="{{ route('categories.edit', $categorie->id)}}" class="btn btn-primary btn-sm"">Editer</a>
+                                        <form action=" {{ route('categories.destroy', $categorie->id)}}" method="POST" style="display: inline-block">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger btn-sm"" type=" submit">Supprimer</button>

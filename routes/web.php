@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\CategorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Route::get('/contact', function () {
 });
 
 Route::resource('produits', ProduitController::class);
+
+Route::resource('categories', CategorieController::class);
