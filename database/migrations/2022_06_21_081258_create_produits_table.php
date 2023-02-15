@@ -20,9 +20,6 @@ return new class extends Migration
             $table->decimal('prix', 12, 2);
             $table->float('quantite');
             $table->timestamps();
-            $table->foreign('categorie_id')
-                ->references('id')
-                ->on('categories');
         });
     }
 
