@@ -26,3 +26,7 @@ Route::get('/contact', function () {
 Route::resource('produits', ProduitController::class);
 
 Route::resource('categories', CategorieController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
