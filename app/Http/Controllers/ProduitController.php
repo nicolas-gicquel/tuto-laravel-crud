@@ -44,15 +44,33 @@ class ProduitController extends Controller
             'prix' => 'required',
             'description' => 'required',
             'quantite' => 'required',
-            'categorie_id' => 'required'
+            'categorie_id' => 'required',
+            'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
+
+        $filename = "";
+        if ($request->hasFile('image')) {
+            // On récupère le nom du fichier avec son extension, résultat $filenameWithExt : "jeanmiche.jpg"
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filenameWithExt = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // On récupère l'extension du fichier, résultat $extension : ".jpg"
+            $extension = $request->file('image')->getClientOriginalExtension();
+            // On créer un nouveau fichier avec le nom + une date + l'extension, résultat $fileNameToStore :"jeanmiche_20220422.jpg"
+            $filename = $filenameWithExt. '_' .time().'.'.$extension;
+            // On enregistre le fichier à la racine /storage/app/public/uploads, ici la méthode storeAs défini déjà le chemin /storage/app
+            $request->file('image')->storeAs('public/uploads', $filename);
+        } else {
+            $filename = Null;
+        }
+
         
         Produit::create([
             'nom' => $request->nom,
             'description' => $request->description,
             'prix' => $request->prix,
             'quantite' => $request->quantite,
-            'categorie_id' => $request->categorie_id
+            'categorie_id' => $request->categorie_id,
+            'image' => $filename
         ]);
 
 

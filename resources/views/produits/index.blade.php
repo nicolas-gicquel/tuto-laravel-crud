@@ -23,6 +23,7 @@
                                     <th scope="col">Catégorie</th>
                                     <th scope="col">Prix</th>
                                     <th scope="col">Quantité</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -35,6 +36,11 @@
                                     <td>{{$produit->categorie->libele}}</td>
                                     <td>{{$produit->prix}}</td>
                                     <td>{{$produit->quantite}}</td>
+                                    @if($produit->image)
+                                        <td>
+                                            <img src="/storage/uploads/{{$produit->image}}" alt="" width="100">
+                                        </td>
+                                    @endif
                                     <td>
                                         <a href="{{ route('produits.edit', $produit->id)}}" class="btn btn-primary btn-sm"">Editer</a>
                                         <form action=" {{ route('produits.destroy', $produit->id)}}" method="POST" style="display: inline-block">

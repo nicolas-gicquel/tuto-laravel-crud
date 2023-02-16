@@ -19,7 +19,7 @@
                         @endif
 
                         <!-- Formulaire -->
-                        <form method="POST" action="{{ route('produits.store') }}">
+                        <form method="POST" action="{{ route('produits.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Nom</label>
@@ -39,19 +39,24 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group mb-4">
+                                    <div class="form-group mb-2">
                                         <label>Quantité</label>
                                         <input type="number" name="quantite" class="form-control">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <select name="categorie_id" class="custom-select">
-                                    <option value=""> --Catégorie-- </option>
-                                    @foreach($categories as $categorie)
-                                    <option value="{{ $categorie->id }}">{{ $categorie->libele }}</option>
-                                    @endforeach
-                                </select>
+
+                                <div class="form-group col-sm-12">
+                                    <label for="image" class="form-label">Image du hero</label>
+                                    <input type="file" class="form-control" name="image" id="image">
+                                </div>
+                                <div class="form-group col-sm-12 mt-2 mb-2">
+                                    <select name="categorie_id" class="form-select">
+                                        <option value=""> --Catégorie-- </option>
+                                        @foreach($categories as $categorie)
+                                        <option value="{{ $categorie->id }}">{{ $categorie->libele }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary  rounded-pill shadow-sm"> Ajouter un produit </button>
                         </form>
