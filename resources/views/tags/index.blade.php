@@ -18,17 +18,17 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Libele</th>
+                                    <th scope="col">Tag</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($categories as $categorie)
+                                @foreach($tags as $tag)
                                 <tr>
-                                    <td>{{$categorie->id}}</td>
-                                    <td>{{$categorie->libele}}</td>
+                                    <td>{{$tag->id}}</td>
+                                    <td>{{$tag->nomTag}}</td>
                                     <td>
-                                        <a href="{{ route('categories.edit', $categorie->id)}}" class="btn btn-primary btn-sm">Editer</a>
-                                        <form action=" {{ route('categories.destroy', $categorie->id)}}" method="POST" style="display: inline-block">
+                                        <a href="{{ route('tags.edit', $tag->id)}}" class="btn btn-primary btn-sm">Editer</a>
+                                        <form action=" {{ route('tags.destroy', $tag->id)}}" method="POST" style="display: inline-block">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger btn-sm" type=" submit">Supprimer</button>
