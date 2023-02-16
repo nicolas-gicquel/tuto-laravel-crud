@@ -9,4 +9,9 @@ class Tag extends Model
 {
     use HasFactory;
     protected $fillable = ['nomTag'];
+
+    public function produits()
+    {
+        return $this->belongsToMany('App\Models\Produits');
+    }
 }
