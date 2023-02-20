@@ -28,6 +28,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            
                                 @foreach($produits as $produit)
                                 <tr>
                                     <td>{{$produit->id}}</td>
@@ -55,6 +56,7 @@
                             </tbody>
                         </table>
                         <!-- Fin du Tableau -->
+                        <a href="{{ route('produits.create')}}" class="btn btn-info btn-lg">Créer un nouveau produit</a>
                     </div>
                 </div>
             </div>

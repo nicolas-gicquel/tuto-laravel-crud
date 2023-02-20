@@ -40,6 +40,7 @@
                             </tbody>
                         </table>
                         <!-- Fin du Tableau -->
+                        <a href="{{ route('categories.create')}}" class="btn btn-info btn-lg">Créer une nouvelle catégorie</a>
                     </div>
                 </div>
             </div>

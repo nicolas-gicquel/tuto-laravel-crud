@@ -19,7 +19,11 @@ use App\Http\Controllers\CategorieController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
 Route::get('/contact', function () {

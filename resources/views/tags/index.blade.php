@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutAdmin')
 @section('content')
 <div class="container py-5">
     <div class="row">
@@ -40,6 +40,7 @@
                             </tbody>
                         </table>
                         <!-- Fin du Tableau -->
+                        <a href="{{ route('tags.create')}}" class="btn btn-info btn-lg">Créer un nouveau tag</a>
                     </div>
                 </div>
             </div>
