@@ -18,24 +18,16 @@ use App\Http\Controllers\CategorieController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
+Route::middleware('auth')->group(function () {
+Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 Route::resource('produits', ProduitController::class);
 
 Route::resource('categories', CategorieController::class);
 
 Route::resource('tags', TagController::class);
+});
+
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
