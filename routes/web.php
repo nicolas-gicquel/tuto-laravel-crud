@@ -19,6 +19,7 @@ use App\Http\Controllers\CategorieController;
 */
 
 Route::middleware('auth')->group(function () {
+    
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 Route::resource('produits', ProduitController::class);
 

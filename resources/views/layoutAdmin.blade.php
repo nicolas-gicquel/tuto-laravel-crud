@@ -73,6 +73,10 @@
                     </li>
                 </ul>
                 <hr>
+                <form action="{{ route('logout') }}" method="POST">
+    @csrf
+    <button type="submit">Déconnexion</button>
+</form>
                 <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
@@ -85,6 +89,8 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
+
+
                         <li><a class="dropdown-item" href="#">Sign out</a></li>
                     </ul>
                 </div>
