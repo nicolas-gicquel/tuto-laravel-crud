@@ -1,0 +1,13 @@
+.menuAdmin {
+    background-color: rgb(49, 83, 151);
+    a {
+        color: white;
+    }
+    a:hover {
+        font-weight: bold;
+        transition: 1s;
+        font-size: 1.1em;
+        text-decoration: none;
+        color: white;
+    }
+}
