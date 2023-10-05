@@ -1,17 +1,13 @@
 .menuAdmin {
-  background-color: #315397;
+  background-color: rgb(49, 83, 151);
 }
-
 .menuAdmin a {
   color: white;
 }
-
 .menuAdmin a:hover {
   font-weight: bold;
-  -webkit-transition: 1s;
   transition: 1s;
   font-size: 1.1em;
   text-decoration: none;
   color: white;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
