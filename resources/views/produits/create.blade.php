@@ -20,7 +20,7 @@
                         @endif
 
                         <!-- Formulaire -->
-                        <form method="POST" action="{{ route('produits.store') }}">
+                        <form method="POST" action="{{ route('produits.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Nom</label>
@@ -53,6 +53,10 @@
                                     <option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="image" class="form-label">Image du hero</label>
+                                <input type="file" class="form-control" name="image" id="image">
                             </div>
                             <button type="submit" class="btn btn-primary rounded-pill shadow-sm">
                                 Ajouter un produit </button>

@@ -19,7 +19,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">Nom</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Prix</th>
@@ -31,7 +31,11 @@
                             <tbody>
                                 @foreach($produits as $produit)
                                 <tr>
-                                    <td>{{$produit->id}}</td>
+                                    @if($produit->image)
+                                    <td>
+                                        <img src="/storage/uploads/{{$produit->image}}" alt="" width="100">
+                                    </td>
+                                    @endif
                                     <td>{{$produit->nom}}</td>
                                     <td>{{$produit->description}}</td>
                                     <td>{{$produit->prix}}</td>
@@ -50,7 +54,7 @@
                             </tbody>
 
                         </table>
-                        <a class="btn btn-primary btn-sm" href="{{ route('produits.create', $produit->id)}}">Ajouter un nouveau produit</a>
+                        <a class="btn btn-primary btn-sm" href="{{ route('produits.create', $produit->id)}}">Aphpjouter un nouveau produit</a>
                         <!-- Fin du Tableau -->
                     </div>
                 </div>
