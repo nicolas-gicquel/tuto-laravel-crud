@@ -84,7 +84,7 @@ class ProduitController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id, Produit $produit)
     {
         $produit = Produit::findOrFail($id);
         return view('produits.edit', compact('produit'));
