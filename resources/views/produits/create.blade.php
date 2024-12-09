@@ -54,6 +54,15 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div>
+                                <label>Tags :</label>
+                                @foreach ($tags as $tag)
+                                <div>
+                                    <input type="checkbox" id="tag{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+                                    <label for="tag{{ $tag->id }}">{{ $tag->nom_tag }}</label>
+                                </div>
+                                @endforeach
+                            </div>
                             <div class="form-group col-sm-12">
                                 <label for="image" class="form-label">Image du hero</label>
                                 <input type="file" class="form-control" name="image" id="image">

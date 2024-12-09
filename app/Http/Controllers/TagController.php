@@ -38,7 +38,7 @@ class TagController extends Controller
 
 
         Tag::create([
-            'nom_tag' => $request->nom,
+            'nom_tag' => $request->nom_tag,
         ]);
 
         return redirect()->route('tags.index')

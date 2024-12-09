@@ -25,6 +25,7 @@
                                     <th scope="col">Prix</th>
                                     <th scope="col">Quantité</th>
                                     <th scope="col">Catégorie</th>
+                                    <th scope="col">Tags</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -35,12 +36,20 @@
                                     <td>
                                         <img src="/storage/uploads/{{$produit->image}}" alt="" width="100">
                                     </td>
+                                    @else
+                                    <td>
+                                        Pas d'images du produit
+                                    </td>
                                     @endif
                                     <td>{{$produit->nom}}</td>
                                     <td>{{$produit->description}}</td>
                                     <td>{{$produit->prix}}</td>
                                     <td>{{$produit->quantite}}</td>
                                     <td>{{$produit->categorie->libelle}}</td>
+                                    <td>
+                                        <p>Tags :</p>
+                                        <ul> @foreach ($produit->tags as $tag) <li>{{ $tag->nom_tag}}</li> @endforeach</ul>
+                                    </td>
                                     <td>
                                         <a href="{{ route('produits.edit', $produit->id)}}" class="btn btn-primary btn-sm">Editer</a>
                                         <form action="{{ route('produits.destroy', $produit->id)}}" method="POST" style="display: inline-block">

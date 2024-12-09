@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\ProduitController;
 
 Route::get('/', function () {
@@ -12,5 +13,5 @@ Route::get('/contact', function () {
 });
 
 Route::resource('produits', ProduitController::class);
-
+Route::resource('tags', TagController::class);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Produit;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class ProduitController extends Controller
     public function create()
     {
         $categories = Categorie::all();
-        return view('produits.create', compact('categories'));
+        $tags = Tag::all();
+        return view('produits.create', compact('categories','tags'));
     }
 
     /**
@@ -60,7 +62,7 @@ class ProduitController extends Controller
             $filename = Null;
         }
 
-        Produit::create([
+        $produit =Produit::create([
             'nom' => $request->nom,
             'description' => $request->description,
             'prix' => $request->prix,
@@ -69,6 +71,9 @@ class ProduitController extends Controller
             'image' => $filename
         ]);
 
+        if ($request->has('tags')) { 
+            $produit->tags()->attach($request->tags);
+        }
         return redirect()->route('produits.index')
             ->with('success', 'Produit ajouté avec succès !');
     }
