@@ -48,7 +48,10 @@
                                     <td>{{$produit->categorie->libelle}}</td>
                                     <td>
                                         <p>Tags :</p>
-                                        <ul> @foreach ($produit->tags as $tag) <li>{{ $tag->nom_tag}}</li> @endforeach</ul>
+                                        <ul> @foreach ($produit->tags as $tag)
+                                            <li>{{ $tag->nom_tag}}</li>
+                                            @endforeach
+                                        </ul>
                                     </td>
                                     <td>
                                         <a href="{{ route('produits.edit', $produit->id)}}" class="btn btn-primary btn-sm">Editer</a>
